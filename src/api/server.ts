@@ -9,18 +9,17 @@ const app = new Elysia()
     cors({
       credentials: true,
       allowedHeaders: ['content-type'],
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
       origin: (request): boolean => {
         return !!request.headers.get('origin');
       },
     }),
   )
-  .use(authentication)
   .use(test)
   .listen(3333);
 
 console.log(
-  chalk.green.bold(
+  chalk.greenBright(
     `🆙 Server running at http://${app.server?.hostname}:${app.server?.port}`,
   ),
 );
