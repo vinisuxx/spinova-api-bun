@@ -1,6 +1,6 @@
 import { createId } from '@paralleldrive/cuid2';
 import { relations } from 'drizzle-orm';
-import { integer, pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import { integer, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 import { artistAlbums } from './artist-albums';
 
 export const albums = pgTable('albums', {
@@ -10,7 +10,7 @@ export const albums = pgTable('albums', {
   name: text('name').notNull(),
   description: text('description'),
   coverUrl: text('cover_url').notNull(),
-  label: text('label').default('N/I').notNull(),
+  label: text('label').notNull(),
   releasedDate: timestamp('released_date').notNull(),
   dimensions: integer('dimensions'),
   createdAt: timestamp('created_at').defaultNow(),
